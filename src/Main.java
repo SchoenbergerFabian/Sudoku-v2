@@ -8,6 +8,8 @@ public class Main {
         Bonus task is done!
 
         my other solution (v1) does not have the bonus task, but parallel works (though slower than normal)
+
+        Additionally, this solution (v2) is faster than my other solution (v1)
     */
 
     private static File file = new File("1_sudoku_level1.csv");
