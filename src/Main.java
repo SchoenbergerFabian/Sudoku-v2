@@ -2,6 +2,14 @@ import java.io.File;
 
 public class Main {
 
+    /*
+        NOTES
+        Checking works parallel! Solving doesn't!
+        Bonus task is done!
+
+        my other solution (v1) does not have the bonus task, but parallel works (though slower than normal)
+    */
+
     private static File file = new File("1_sudoku_level1.csv");
 
     public static void main(String[] args) {
