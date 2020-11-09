@@ -2,16 +2,35 @@ import java.io.File;
 
 public class Main {
 
-    private static File file = new File("1_sudoku_level1_solution.csv");
+    private static File file = new File("1_sudoku_level1.csv");
 
     public static void main(String[] args) {
         SudokuSolver ss = new SudokuSolver();
+
+        //reading
         int[][] input = ss.readSudoku(file);
 
+        //printing raw
         printSudoku(input);
 
-        System.out.println(ss.checkSudoku(input));
-        System.out.println(ss.checkSudokuParallel(input));
+        //solving
+        int[][] outputSingle = ss.solveSudoku(input);
+        //int[][] outputParallel = ss.solveSudokuParallel(input);
+
+        //printing solution
+        System.out.println("\nSOLUTION (single)");
+        printSudoku(outputSingle);
+        //System.out.println("\nSOLUTION (parallel)");
+        //printSudoku(outputParallel);
+
+        //checking
+        System.out.println("SOLVED (single) = " + ss.checkSudoku(outputSingle)/*+"\n"
+                +"SOLVED (parallel) = " + ss.checkSudokuParallel(outputParallel)*/);
+
+        //benchmarking
+        System.out.println("\nBENCHMARK" +
+                "\nSingle: " + ss.benchmark(input) + "ms" /*+
+                "\nParallel: " + ss.benchmarkParallel(input) + "ms"*/);
     }
 
     private static void printSudoku(int[][] rawSudoku){
